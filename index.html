@@ -1,12 +1,12 @@
 <!-- Unit 12 Project
 Requirements
-[  ] Two Interactive Drop-down Inputs 
-[  ] Standard Animation
-[  ] Custom Animation
-[  ] Include Three Images
+[ yes ] Two Interactive Drop-down Inputs 
+[ yes ] Standard Animation
+[ yes ] Custom Animation
+[ yes ] Include Three Images
 
 Select ONE Additional Feature to Add  
-[ no ] Feature 1 - Google Font
+[ yes ] Feature 1 - Google Font
 [ no ] Feature 2 - Chain jQuery Methods
 [ no ] Feature 3 - .mouseover() & .mouseOut() Methods
 [ no ] Feature 4 - :hover Feature 
@@ -17,27 +17,29 @@ Select ONE Additional Feature to Add
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Unit 12 Project</title>
+    <title>talia quiz</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Niconne&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <h1>Quiz About [Me]</h1>
+    <h1>Quiz About Me!</h1>
     <hr />
     <!-- Movie Question -->
     <form id="movie-form">
       <label>
         🎥 What is my favorite movie?
         <select id="movie-answer">
-          <option value="movie1">movie 1</option>
-          <option value="movie2">movie 2</option>
-          <option value="movie3">movie 3</option>
-          <option value="movie4">movie 4</option>
+          <option value="movie1">aristocats</option>
+          <option value="movie2">harry potter</option>
+          <option value="movie3">peunuts</option>
+          <option value="movie4">coraline</option>
         </select>
       </label>
       <button type="submit">Check Movie Answer</button>
     </form>
-    <div id="movie-result">
+    <div id="movie-result" style="display:none;">
       <p id="movie-text"></p>
+      <img id= "https://m.media-amazon.com/images/I/712eWQMlmQL._AC_UF894,1000_QL80_.jpg" src="aristocats-img" style="display:none;"/>
     </div>
     <hr />
     <!-- Book Question -->
@@ -45,17 +47,37 @@ Select ONE Additional Feature to Add
       <label>
         📖 What is my favorite book?
         <select id="book-answer">
-          <option value="book1">book 1</option>
-          <option value="book2">book 2</option>
-          <option value="book3">book 3</option>
-          <option value="book4">book 4</option>
+          <option value="book1">little women</option>
+          <option value="book2">narnia</option>
+          <option value="book3">Orbiting Jupiter</option>
+          <option value="book4">dracula</option>
         </select>
       </label>
       <button type="submit">Check Book Answer</button>
     </form>
     <div id="book-result">
       <p id="book-text"></p>
+    <img id= "https://m.media-amazon.com/images/I/61CXDzNXkQL._AC_UF1000,1000_QL80_.jpg" src="oj-img" style="display:none;">
     </div>
+     <hr />
+    <!-- Song Question -->
+    <form id="song-form">
+      <label>
+        🎶 What is my favorite song?
+        <select id="song-answer">
+          <option value="song1">starting over</option>
+          <option value="song2">bodysnatchers</option>
+          <option value="song3">visions of gideon</option>
+          <option value="song4">bigmouth strikes again</option>
+        </select>
+      </label>
+      <button type="submit">Check Book Answer</button>
+    </form>
+    <div id="song-result">
+      <p id="song-text"></p>
+    <img id= "https://m.media-amazon.com/images/I/51YduLKLxvL._UXNaN_FMjpg_QL85_.jpg" src="visions-img" style="display:none;" width="400"/>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
       
@@ -66,12 +88,16 @@ Select ONE Additional Feature to Add
         var $answer = $("#movie-answer");
         var answer = $answer.val();
 
+        $("#movie-result").hide();
+        $("#aristocats-img").hide();
         if (answer === "movie1") {
-          $("#movie-text").text("YESSSS!");
+          $("#movie-text").text("YEP!!!🎉");
+          $("#aristocats-img").show();
         } 
         else {
-          $("#movie-text").text("Try Again!");
+          $("#movie-text").text("Try Again...😞");
         }
+        $("#movie-results").slideDown(1000);
       });
 
       //=======================Book Question jQuery Code
@@ -81,12 +107,35 @@ Select ONE Additional Feature to Add
         var $answer = $("#book-answer");
         var answer = $answer.val();
 
-        if (answer === "book1") {
+        $("#book-result").hide();
+        $("#oj-img").hide(); 
+        if (answer === "book3") {
           $("#book-text").text("YESSSS!");
+          $("#oj-img").show();
         } 
         else {
           $("#book-text").text("Try Again!");
         }
+        $("#book-result").slideDown(1000);
+      });
+
+            //=======================Song Question jQuery Code
+      $("#song-form").on("submit", function (event) {
+        event.preventDefault();
+
+        var $answer = $("#song-answer");
+        var answer = $answer.val();
+
+        $("#song-result").hide();
+        $("#visions-img").hide();        
+        if (answer === "song3") {
+          $("#song-text").text("YESSSS!😋");
+          $("#visions-img").show();
+        } 
+        else {
+          $("#song-text").text("Try Again!");
+        }
+        $("#song-result").animate({opacity:1},1000);
       });
       
     </script>
