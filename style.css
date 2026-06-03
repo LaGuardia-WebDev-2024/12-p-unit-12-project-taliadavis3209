@@ -22,8 +22,8 @@ body {
   margin-top: 10px;
   margin-bottom: 20px;
 }
-#song-results {
-  background:rgb(159, 255, 242)
+#song-result {
+  background:rgb(159, 255, 242);
   border: 5px solid black;
   font-size: 24px;
   min-height: 160px;

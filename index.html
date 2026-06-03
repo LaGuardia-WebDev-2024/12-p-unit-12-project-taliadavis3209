@@ -37,9 +37,9 @@ Select ONE Additional Feature to Add
       </label>
       <button type="submit">Check Movie Answer</button>
     </form>
-    <div id="movie-result" style="display:none;">
+    <div id="movie-result">
       <p id="movie-text"></p>
-      <img id= "https://m.media-amazon.com/images/I/712eWQMlmQL._AC_UF894,1000_QL80_.jpg" src="aristocats-img" style="display:none;"/>
+      <img id= "aristocats-img" src="https://m.media-amazon.com/images/I/712eWQMlmQL._AC_UF894,1000_QL80_.jpg" style="display:none;" width="200;"/>
     </div>
     <hr />
     <!-- Book Question -->
@@ -57,7 +57,7 @@ Select ONE Additional Feature to Add
     </form>
     <div id="book-result">
       <p id="book-text"></p>
-    <img id= "https://m.media-amazon.com/images/I/61CXDzNXkQL._AC_UF1000,1000_QL80_.jpg" src="oj-img" style="display:none;">
+    <img id= "oj-img" src="https://m.media-amazon.com/images/I/61CXDzNXkQL._AC_UF1000,1000_QL80_.jpg" style="display:none;" width="200;">
     </div>
      <hr />
     <!-- Song Question -->
@@ -73,9 +73,9 @@ Select ONE Additional Feature to Add
       </label>
       <button type="submit">Check Book Answer</button>
     </form>
-    <div id="song-result">
+    <div id="song-result" style="opacity:1;">
       <p id="song-text"></p>
-    <img id= "https://m.media-amazon.com/images/I/51YduLKLxvL._UXNaN_FMjpg_QL85_.jpg" src="visions-img" style="display:none;" width="400"/>
+    <img id= "visions-img" src="https://m.media-amazon.com/images/I/51YduLKLxvL._UXNaN_FMjpg_QL85_.jpg" style="display:none;" width="200"/>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -97,7 +97,7 @@ Select ONE Additional Feature to Add
         else {
           $("#movie-text").text("Try Again...😞");
         }
-        $("#movie-results").slideDown(1000);
+        $("#movie-result").slideDown(1000);
       });
 
       //=======================Book Question jQuery Code
@@ -126,7 +126,7 @@ Select ONE Additional Feature to Add
         var $answer = $("#song-answer");
         var answer = $answer.val();
 
-        $("#song-result").hide();
+        $("#song-result").css("opacity", 0);
         $("#visions-img").hide();        
         if (answer === "song3") {
           $("#song-text").text("YESSSS!😋");
@@ -135,8 +135,8 @@ Select ONE Additional Feature to Add
         else {
           $("#song-text").text("Try Again!");
         }
-        $("#song-result").animate({opacity:1},1000);
-      });
+          $("#song-result").animate({opacity:1},1000);
+      })
       
     </script>
   </body>
